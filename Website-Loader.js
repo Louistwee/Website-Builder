@@ -6,6 +6,7 @@ $.fn.UI = function(obj){
   }else{
     $(this).append($('<div></div>')[obj.type](obj))
   }
+  return this;
 };
 $.UI.accordion = function(obj){
   var items = obj.items;
@@ -13,12 +14,10 @@ $.UI.accordion = function(obj){
   var item = [];
   for (var i = 0; i < items.length; i++) { 
     let j = i;
-    items[i].title = $('<h3></h3>').text(items[i].title);
-    items[i].content = typeof items[i].content === 'string' ? $(items[i].content) : $('<div></div>');
-    $result.append(items[i].title, items[i].content);
-    setTimeout(function(){
-      items[j].content.UI(items[j]);
-    },0)
+    let $title = $('<h3></h3>').text(items[i].title);
+    let $content = $('<div></div>');
+    $content.UI(items[j]);
+    $result.append($title, $content);
   }
-  return result;
+  return $result;
 };
