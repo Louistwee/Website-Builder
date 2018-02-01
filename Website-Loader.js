@@ -22,5 +22,6 @@ $.UI.accordion = function(obj){
     $content.UI(items[j]);
     $result.append($title, $content);
   }
+  $result.accordion(obj);
   return $result;
 };
