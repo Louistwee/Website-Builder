@@ -9,12 +9,12 @@ $.fn.UI = function(obj){
 };
 $.UI.accordion = function(obj){
   var items = obj.items;
-  $result = $('<div></div>');
+  var $result = $('<div></div>');
   var item = [];
-  for (i = 0; i < items.length; i++) { 
+  for (var i = 0; i < items.length; i++) { 
     let j = i;
     items[i].title = $('<h3></h3>').text(items[i].title);
-    items[i].content = $('<div></div>');
+    items[i].content = typeof items[i].content === 'string' ? $(items[i].content) : $('<div></div>');
     $result.append(items[i].title, items[i].content);
     setTimeout(function(){
       items[j].content.UI(items[j]);
