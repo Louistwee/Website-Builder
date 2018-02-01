@@ -1,6 +1,8 @@
 $.fn.UI = function(obj){
   if(typeof obj == 'string'){
     $(this).append(obj);
+  }else if(obj.content&&!obj.type){
+    $(this).append(obj.content)
   }else if(obj.type in $.UI){
     $(this).append($.UI[obj.type](obj))
   }else{
