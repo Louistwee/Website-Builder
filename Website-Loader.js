@@ -8,6 +8,7 @@ $.fn.UI = function(obj){
   }
   return this;
 };
+$.UI = {};
 $.UI.accordion = function(obj){
   var items = obj.items;
   var $result = $('<div></div>');
